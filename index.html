@@ -1,0 +1,66 @@
+<html lang="en-EN">
+
+<head>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/qrcode.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Developer edition connection</title>
+</head>
+
+<body class="container">
+    <br>
+    <h3>Connect mobile TokenD Wallet to the Developer edition</h3>
+    <br>
+    <ol start="0" style="line-height:24pt;">
+        <li>Install <a href="https://demo.tokend.io/downloads"target="_blank">TokenD Wallet</a> to your phone and start <a href="https://github.com/tokend/developer-edition" target="_blank">TokenD
+                Developer edition</a> on your computer</li>
+        <li>
+            Install <a href="https://dashboard.ngrok.com/get-started" target="_blank">ngrok</a> for your OS
+            <div class="alert alert-secondary" role="alert">
+                <p><b>Why do I need it?</b></p>
+                ngrok allows you to get a public domain for the server running on localhost 
+                without the need of real IP and port forwardings.<br>
+                However, if you have a real IP with open 8000 port you can 
+                <a href="jsconfig.html">reconfigure your environment</a>
+                or just input <code>http://YOUR_IP:8000</code> on the 4th step.
+            </div>
+        </li>
+        <li>In the terminal run <code>ngrok http 8000</code> command</li>
+        <li>Copy last «‎Forwarding»‎ URL from the appeared window</var>
+            <div class="row">
+                <div class="col-md-8">
+                    <img src="img/ngrok.png" alt="ngrok window" class="img-fluid img-thumbnail">
+                </div>
+            </div>
+            <br>
+        </li>
+        <li>Paste an URL in the field below and click «‎Get QR code»‎
+            <div class="row" style="margin-top:18px">
+                <form class="col-md-8" id="urlForm">
+                    <div class="form-group">
+                        <input type="url" class="form-control" id="url" placeholder="Paste ngrok URL here" autocomplete="off">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Get QR code</button>
+                </form>
+            </div>
+            <div class="row">
+                <div id="qrContainer" class="img-thumbnail" style="padding: 36px;display: none;">
+                    <div id="qr"></div>
+                </div>
+            </div>
+        </li>
+        <li>Scan generated QR code with the mobile TokenD Wallet</li>
+    </ol>
+    <div class="alert alert-secondary" role="alert">
+        <p><b>Important notice about ngrok</b></p>
+        <ul>
+            <li>Do not turn off ngrok session while using the app</li>
+            <li>Ngrok session may have an expiration period</li>
+        </ul>
+    </div>
+    <br>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
